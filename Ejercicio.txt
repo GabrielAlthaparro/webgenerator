@@ -1,0 +1,30 @@
+Esta actividad es individual.
+Video de la "Clase 11" ( https://youtu.be/yXNIRl3-wr0 ).
+
+Función “shellexec” en PHP ( https://www.php.net/manual/es/function.shell-exec.php )
+Crear la carpeta “clase11” en el “servidor de producción”
+Copiar el script “wix.sh” de la asignación “_Y en mi CV puse: "Junior SRE", que trucazo no?” en la carpeta “clase11”
+La base de datos a utilizar es la del  “servidor de desarrollo”.
+
+Actividad:
+
+a. Crear las siguientes tablas en tu base de datos:
+
+usuarios: campos propuestos-> idUsuario(AI), email, password y fechaRegistro (guarda la fecha de creación del usuario). 
+
+webs: campos propuestos-> idWeb(AI), idUsuario, dominio (guarda la dirección de la web) y fechaCreacion (guarda la fecha en la se creó la web).
+
+b. Generar el sitio web “webgenerator” dentro de la carpeta “clase11”, este sitio tiene como finalidad la creación de sitios webs simples con unos pocos clics. El sitio estará compuesto de las siguientes páginas:
+
+login.php: Colocarle de título “webgenerator”, debajo colocar un formulario de logueo que solicite email y contraseña, debajo un link que lleve a la página “register.php”. Si los datos de logueo son inválidos se debe notificar el problema al usuario, en cambio si es valido se redirecciona a “panel.php”. Si el usuario está logueado y quiere volver a loguearse se redirecciona a “panel.php”.
+
+register.php: Colocarle de título “Registrarte es simple”, debajo colocar un formulario que solicite email, contraseña y repetir contraseña. Validar que las dos contraseñas sean iguales (informar al usuario si no lo son), si el email no está en la tabla “usuarios” (si lo está informar al usuario) se agrega el nuevo usuario (informar al usuario que el registro fue exitoso) y redireccionar a “login.php”. Si el usuario está logueado  y quiere volver a registrarse  se redirecciona a ”panel.php”.
+
+panel.php: Colocarle de título “Bienvenido a tu panel”, debajo colocar un link con la leyenda “Cerrar sesión de ZZZZ” donde ZZZZ es el “idUsuario” al presionarlo redirecciona a “logout.php”, debajo colocar un formulario con la leyenda “Generar Web de:” y solicitar con una caja de texto el nombre para la nueva web y un botón “Crear web”. Al presionar el botón, se concatena el “nombre ingresado” y el “idUsuario” (ejemplo: 1000mattprofe), si el resultado no coincide con ningún “dominio” de la tabla “webs” se agrega a esta tabla el “dominio concatenado” y el “idUsuario” en los campos correspondientes, luego se ejecuta el script “wix.sh” pasandole como parametro el nuevo “dominio”. Debajo del formulario listar como links todas las webs del usuario, una debajo de la otra, al hacerle clic a alguna nos lleva al index correspondiente de esa web, a lado de cada web colocar un link con la leyenda “descargar web” al presionarlo se comprimira en un zip la carpeta de esa web y se redireccionará a la descarga del archivo zip (el nombre será el del dominio). Si el usuario no está logueado pero intenta acceder “panel.php” este lo redirecciona a “login.php”. Por último y con la finalidad de hacer tests, si el usuario logueado es “admin@server” con la contraseña “serveradmin” se mostrará el listado de todas las webs de todos los usuarios.
+
+logout.php: Desloguea al usuario sin importar si está logueado o no y redirecciona a “login.php”
+
+Una vez realizada la actividad, responder a la asignación con el link que apunta a la carpeta de tu “clase11” en el servidor de producción . ‌
+Ejemplo:
+
+http://mattprofe.com.ar:81/alumno/9966/actividades/clase11/
